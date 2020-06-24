@@ -1,0 +1,59 @@
+// less のカラー設定方法
+// 1. sudo apt-get install source-highlight
+// 2. mkdir $HOME/.source-highlight
+// 3. cp /usr/share/source-highlight/src-hilite-lesspipe.sh $HOME/.source-highlihgt
+// 4. cp /usr/share/source-highlight/esc.style $HOME/.source-highlight/jellybeans.style
+// 5. 3のファイル内のesc.style をjellybeans.style に変更
+// 6. .zshrc にパスを追記して適用．詳しくは.zshrc を参照のこと．
+// 7. あとはこのファイルを好きに変更するだけ．
+
+// 文字色の変更 : \e[38;5;色番号m
+// 背景色の変更 : \e[48;5;色番号m
+// 文字色を戻す : \e[39m
+// 背景色を戻す : \e[49m
+// 全指定を戻す : \e[0m
+
+keyword "38;5;210"; // 制御構文
+type, classname "38;5;216"; // オレンジ
+string "38;5;2"; // 緑
+regexp "38;5;193";
+specialchar "38;5;150"; // 黄色．'\0'や'\n'.
+comment "38;5;8" i ; // グレー
+number "38;5;97"; 
+preproc "38;5;111"; // 水色
+symbol "38;5;189"; // "=,[,],(,),<,>,+,-,*,&,;,:"
+function white;
+cbracket white;
+variable "38;5;146";
+
+// line numbers
+linenum "38;5;8";
+
+// other elements for ChangeLog and Log files
+date blue ;
+time darkblue ;
+ip darkgreen ;
+file darkblue ;
+name darkgreen ;
+
+// Internet related
+url blue u;
+
+// for diffs
+oldfile orange;
+newfile darkgreen;
+difflines blue; 
+
+// for css
+selector purple;
+property blue;
+value darkgreen i;
+
+// for feature (Cucumber) files
+cuketag green ;
+gherken blue ;
+given red ;
+when cyan ;
+then yellow ;
+and_but pink ;
+table white ;
