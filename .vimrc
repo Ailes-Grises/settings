@@ -3,6 +3,7 @@
 
 " very magic でエスケープしないとメタ文字扱いにならない文字は，以下の通り:
 " |
+
 set number
 set title
 set encoding=utf-8
@@ -43,9 +44,8 @@ nnoremap <silent> ;ncount :%s/\v./&/g<CR>
 " ヤンクした文字列を検索する
 nnoremap ;/ :set hlsearch<CR>:let @/=@"<CR>
 
-" 以下の文字列の前後にスペースを入れる
-" '=', '==', '&&', '+=', '-=', '*-', '!=', '<<', '//'
-nnoremap <silent> ;s :%s/\v([^\+\-\*/%!= ])\=([^=> ])/\1 = \2/ge<CR> :%s/\v([^ ])(\=\=\|\&\&\|\+\=\|\-\=\|\*\=\|!\=\|\<\<\|\/\/)([^ ])/\1 \2 \3/ge<CR> :%s/\v(\/\/)([^ ])/\1 \2/g<CR>
+" インデントの補正 (力作だぞw)
+nnoremap ;= :w<CR> gg :call append(0, '')<CR>k:r!perl ~/.vim/indent.pl %<CR>jvG$xggdd
 
 " Vundle
 filetype plugin on
