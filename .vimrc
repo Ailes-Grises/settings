@@ -45,7 +45,10 @@ nnoremap <silent> ;ncount :%s/\v./&/g<CR>
 nnoremap ;/ :set hlsearch<CR>:let @/=@"<CR>
 
 " インデントの補正 (力作だぞw)
-nnoremap ;= :w<CR> gg :call append(0, '')<CR>k:r!perl ~/.vim/indent.pl %<CR>jvG$xggdd
+nnoremap ;= :w<CR> gg :call append(0, '')<CR>k:r!perl ~/.vim/indent.pl %<CR>jvG$xddggdd
+
+" .vimrc の内容確認
+nnoremap ;man :!less ~/.vimrc<CR>
 
 " Vundle
 filetype plugin on
