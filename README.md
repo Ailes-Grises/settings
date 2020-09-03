@@ -2,14 +2,15 @@
 ```
 $HOME/ ---- .zshrc
         |-- .bashrc
-				|-- .vimrc
-				|-- .colorrc
-				|-- .termcolors.pl
-				|
-			  |-- .vim/ ---- indent.pl
-				|          L-- colors/
-				|
-				L-- .source-highlight/ ---- jellybeans.style
+        |-- .vimrc
+        |-- .colorrc
+        |-- .termcolors.pl
+        |
+        |-- .vim/ ---- indent.pl
+        |          L-- colors/
+        |
+        L-- .source-highlight/ ---- jellybeans.style
+
 ```
 
 # Installation
