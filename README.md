@@ -1,4 +1,5 @@
 # Positions
+```
 $HOME/ ---- .zshrc
         |-- .bashrc
 				|-- .vimrc
@@ -9,6 +10,7 @@ $HOME/ ---- .zshrc
 				|          L-- colors/
 				|
 				L-- .source-highlight/ ---- jellybeans.style
+```
 
 # Installation
 For jellybeans.vim 
