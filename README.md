@@ -20,6 +20,11 @@ cd $HOME/.vim/colors/
 git clone https://github.com/nanotech/jellybeans.vim
 ```
 
+For Dein
+```
+sudo apt-get install neovim python3
+```
+
 For less color
 ```
 sudo apt-get install source-highlight

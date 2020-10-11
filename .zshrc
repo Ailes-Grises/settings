@@ -19,8 +19,15 @@ add-zsh-hook chpwd settitle
 
 # ヒストリー関係
 HISTFILE=~/.zsh_history
-HISTSIZE=100000
+HISTSIZE=1000
 SAVEHIST=100000
+alias history='history -150 | fzf'
+function select-history() {
+  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  CURSOR=$#BUFFER
+}
+zle -N select-history
+bindkey '^r' select-history
 
 # 補完
 autoload -Uz compinit
@@ -46,7 +53,7 @@ alias date='date | sed -r "s/([0-9][0-9]:[0-9][0-9]):[0-9][0-9]/\x1b[38;5;217m\1
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias sl='ls'
-alias SL~'ls'
+alias SL='ls'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -80,6 +87,25 @@ zstyle ':vcs_info:*' formats "%{[38;5;217m%}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+
+# git worktree の移動
+function cdworktree() {
+    # カレントディレクトリがGitリポジトリ上かどうか
+    git rev-parse &>/dev/null
+    if [ $? -ne 0 ]; then
+        echo fatal: Not a git repository.
+        return
+    fi
+
+    local selectedWorkTreeDir=`git worktree list | fzf | awk '{print $1}'`
+
+    if [ "$selectedWorkTreeDir" = "" ]; then
+        # Ctrl-C.
+        return
+    fi
+
+    cd ${selectedWorkTreeDir}
+}
 
 # Golang
 export PATH=$PATH:/usr/local/go/bin
