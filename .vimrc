@@ -19,6 +19,7 @@ set autoindent
 set smartindent
 set ignorecase
 set smartcase
+set t_Co=256
 " set laststatus=2
 
 
