@@ -7,7 +7,9 @@ $HOME/ ---- .zshrc
         |-- .termcolors.pl
         |
         |-- .vim/ ---- indent.pl
-        |          L-- colors/
+        |          L-- colors/ ---- jellybeans.vim
+        |
+        |-- .cache/ ---- dein/ ---- installer.sh
         |
         L-- .source-highlight/ ---- jellybeans.style
 
@@ -17,12 +19,17 @@ $HOME/ ---- .zshrc
 For jellybeans.vim 
 ```
 cd $HOME/.vim/colors/
-git clone https://github.com/nanotech/jellybeans.vim
+curl -O https://github.com/nanotech/jellybeans.vim/colors/jellybeans.vim
 ```
 
 For Dein
 ```
 sudo apt-get install neovim python3
+mkdir -p $HOME/.cache/dein
+cd $HOME/.cache/dein
+curl https://raw.githubusercontent.com/Shougo/dein.vim/bin/installer.sh > installer.sh
+sudo chmod 755 installer.sh
+./installer.sh ~/.cache/dein
 ```
 
 For less color
