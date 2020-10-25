@@ -148,6 +148,13 @@ declare wat="\\x1b[36m"
 # automate git branch
 source ~/.git-prompt.sh
 
+# ディレクトリ移動したら自動でls
+autols(){
+	[[ $AUTOLS_DIR != $PWD ]] && ls
+	AUTOLS_DIR="${PWD}"
+}
+export PROMPT_COMMAND="autols"
+
 PATH="/home/sumiko/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/sumiko/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/sumiko/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
