@@ -25,11 +25,11 @@ set t_Co=256
 
 
 " 編集モードのキーバインド
-inoremap { {}<Left>
-inoremap ( ()<Left>
-inoremap [ []<Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
+" inoremap { {}<Left>
+" inoremap ( ()<Left>
+" inoremap [ []<Left>
+" inoremap " ""<Left>
+" inoremap ' ''<Left>
 
 
 " :highlightで使用可能なグループは :help highlight-groups で検索可能. syntax.txtが開かれる. 

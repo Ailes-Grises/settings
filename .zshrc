@@ -63,6 +63,9 @@ alias termcolors='perl $HOME/.termcolors.pl'
 alias Log='perl $HOME/.log.pl'
 alias -g platex='platex -halt-on-error -interaction=nonstopmode -file-line-error'
 
+# 変数
+GIT="https://github.com"
+
 # cdの後にlsを実行
 chpwd() { ls --color=auto }
 
@@ -74,6 +77,9 @@ setopt extended_glob
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# tig
+alias tig='tig'
 
 
 # Gitのブランチ表示
