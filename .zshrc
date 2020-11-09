@@ -22,12 +22,22 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=100000
 alias history='history -150 | fzf'
+
 function select-history() {
   BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
   CURSOR=$#BUFFER
 }
 zle -N select-history
 bindkey '^r' select-history
+
+# 余計な空白を削除
+setopt hist_reduce_blanks
+# history コマンドは履歴に入れない
+setopt hist_no_store
+# ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
+setopt hist_ignore_all_dups
+# 古いコマンドと同じものは無視
+setopt hist_save_no_dups
 
 # 補完
 autoload -Uz compinit
