@@ -35,7 +35,7 @@ set t_Co=256
 " :highlightで使用可能なグループは :help highlight-groups で検索可能. syntax.txtが開かれる. 
 
 " カーソル行のハイライトとその解除
-nnoremap <silent> ;h :set cursorline<CR>:highlight CursorLine ctermfg=9<CR>
+nnoremap <silent> ;h :set cursorline<CR>:highlight CursorLine ctermfg=6<CR>
 nnoremap <silent> ;H :highlight CursorLine ctermfg=none<CR>:set nocursorline<CR>
 
 " カーソル下の文字のハイライト検索とその解除

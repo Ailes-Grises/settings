@@ -61,9 +61,13 @@ export LESS='-RFX'
 alias battery='upower --enumerate | grep battery | xargs upower -i | grep percentage | sed -r "s/percentage/\x1b[38;5;217m&\x1b[0m/gi"'
 alias date='date | sed -r "s/([0-9][0-9]:[0-9][0-9]):[0-9][0-9]/\x1b[38;5;217m\1\x1b[0m/g"'
 alias ls='ls --color=auto'
+alias l='ls'
 alias la='ls -a'
+alias ll='ls -l'
+alias lls='ls -l'
 alias sl='ls'
 alias SL='ls'
+alias LS='ls'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -87,6 +91,26 @@ setopt extended_glob
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# fzf の便利関数とキーバインド
+
+# ホームディレクトリ以下のディレクトリを検索(隠しディレクトリは排除)
+function search_hidden_home() {
+	BUFFER=$(find ~ -type d 2>/dev/null | fzf --no-sort +m --query "$LBUFFER" --prompt="home (include hidden directory): ")
+  CURSOR=$#BUFFER
+}
+zle -N search_hidden_home
+bindkey '^y' search_hidden_home
+
+# ホームディレクトリ以下のディレクトリを検索(隠しディレクトリは排除)
+function search_home() {
+  BUFFER=$(find ~ -type d 2>/dev/null | grep -v "\/\." | fzf --no-sort +m --query "$LBUFFER" --prompt="home: ")
+  CURSOR=$#BUFFER
+}
+zle -N search_home
+bindkey '^g' search_home
+
+
 
 # tig
 alias tig='tig'
