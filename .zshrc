@@ -100,7 +100,7 @@ function search_hidden_home() {
   CURSOR=$#BUFFER
 }
 zle -N search_hidden_home
-bindkey '^y' search_hidden_home
+bindkey '^g' search_hidden_home
 
 # ホームディレクトリ以下のディレクトリを検索(隠しディレクトリは排除)
 function search_home() {
@@ -108,7 +108,7 @@ function search_home() {
   CURSOR=$#BUFFER
 }
 zle -N search_home
-bindkey '^g' search_home
+bindkey '^y' search_home
 
 
 
