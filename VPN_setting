@@ -1,0 +1,11 @@
+1. リポジトリを追加し，"sstp-client"と"network-manager-sstp-gnome"をインストールする．
+
+$ sudo add-apt-repository ppa:eivnaes/network-manager-sstp
+$ sudo apt-get update 
+$ sudo apt-get install sstp-client 
+$ sudo apt-get install network-manager-sstp-gnome 
+$ shutdown -r now
+
+2. 「ゲートウェイ」に"srasvpn.sic.shibaura-it.ac.jp"を設定
+3. 「ユーザ名」と「パスワード」を記入し，「NTドメイン」は未設定のまま「適用」する．
+
