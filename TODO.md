@@ -13,5 +13,7 @@
 - gnuplot
 - platformio
 - curl
+- gparted
 - Imagemagick
 - texlive
+
