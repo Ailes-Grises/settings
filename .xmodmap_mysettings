@@ -4,8 +4,7 @@
 ! $ xmodmap ~/.xmodmap_mysettings
 
 ! 変更前          変更後
-! Eisu_toggle --> Shift_L
-! Shift_L     --> Ctrl_L
+! Eisu_toggle --> Ctrl_L
 ! 無変換      --> ESC
 
 ! remove -> keycode -> add の順番で設定する．
@@ -17,10 +16,8 @@ clear shift
 
 ! 2. キーの割り当て
 ! $ xev で調べる
-! CapsLock --> Shift_L
-keycode  66 = Shift_L
-! Shift_L --> Ctrl_L
-keycode  50 = Control_L
+! CapsLock --> Control_L
+keycode  66 = Control_L
 ! 無変換   --> ESC
 keycode  102 = Escape
 
