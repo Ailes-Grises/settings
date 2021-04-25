@@ -65,6 +65,41 @@ nnoremap ;= :w<CR> gg :call append(0, '')<CR>k:r!perl ~/.vim/indent.pl %<CR>jvG$
 " .vimrc の内容確認
 nnoremap ;man :!less ~/.vimrc<CR>
 
+" ===================== ctags の設定 ========================
+
+" $HOME まで遡って.tags ファイルを検索し登録
+set tags=.tags;$HOME
+
+" 一度読み込んだ.tags ファイルパスと同じ場所で.tagsファイルを生成
+function! s:execute_ctags() abort
+  " 探すタグファイル名
+  let tag_name = '.tags'
+  " ディレクトリを遡り、タグファイルを探し、パス取得
+  let tags_path = findfile(tag_name, '.;')
+  " タグファイルパスが見つからなかった場合
+  if tags_path ==# ''
+		" 現状何もしてないが、本当はプロジェクトルートに自動生成したりしたほうが良い
+		echo ".tags ファイルが見つかりませんでした．どこかに生成して下さい．"
+    return
+  endif
+
+  " タグファイルのディレクトリパスを取得
+  " `:p:h`の部分は、:h filename-modifiersで確認
+  let tags_dirpath = fnamemodify(tags_path, ':p:h')
+  " 見つかったタグファイルのディレクトリに移動して、ctagsをバックグラウンド実行（エラー出力破棄）
+  execute 'silent !cd' tags_dirpath '&& ctags -R -f' tag_name '2> /dev/null &'
+endfunction
+
+" タグファイルの自動生成
+augroup ctags
+	autocmd!
+	" カレントディレクトリに毎回.tags が出来てしまっても良いなら以下を実行
+	" autocmd BufWritePost * silent !ctags -R -f .tags
+
+	" s:execute_ctags() 関数を実行
+	autocmd BufWritePost * call s:execute_ctags()
+augroup END
+
 
 " ===================== プラグインのパラメータ ========================
 
@@ -125,6 +160,9 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('vim-airline/vim-airline')
 	call dein#add('vim-airline/vim-airline-themes')
 
+	" emmet
+	call dein#add('mattn/emmet-vim')
+
 	call dein#end()
 	call dein#save_state()
 endif
@@ -138,5 +176,19 @@ syntax enable
 colorscheme jellybeans
 "colorscheme molokai
 "colorscheme tender
-"colorscheme shirotelin
-"
+"colorscheme iceberg
+
+" =========================== WSL + windows terminal の設定 =====================================
+
+" WSL の警告音を消す
+set visualbell t_vb=
+
+" WSL のvim でヤンク時にwindows のクリップボードと同期する
+augroup Yank
+	au!
+	autocmd TextYankPost * :call system('clip.exe',@")
+augroup END
+
+" windows のコピー内容をvim のレジスタと同期する
+nnoremap <RightMouse> :!clip.exe<CR><ESC>
+

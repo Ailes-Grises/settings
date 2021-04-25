@@ -80,6 +80,8 @@ alias -g platex='platex -halt-on-error -interaction=nonstopmode -file-line-error
 # 変数
 GIT="https://github.com"
 
+
+
 # cdの後にlsを実行
 chpwd() { ls --color=auto }
 
@@ -147,6 +149,12 @@ function cdworktree() {
     cd ${selectedWorkTreeDir}
 }
 
-# Golang
-export PATH=$PATH:/usr/local/go/bin
+# =========================== WSL + windows terminal =====================================
+# WSL で現在のディレクトリを保持したまま新しいタブを開く
+# function _windows_terminal_osc_9_9 {
+# 	printf '\e]9;9;%s\e\' "$(wslpath -w "$(pwd)")"
+# }
+# precmd_functions+=(_windows_terminal_osc_9_9)
 
+# WSL のzsh の警告音を消す
+setopt no_beep
