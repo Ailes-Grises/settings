@@ -15,16 +15,42 @@ $HOME/ ---- .zshrc
         L-- .source-highlight/ ---- jellybeans.style
 
 ```
+# For Windows Terminal
+```
+$HOME/ ---- .inputrc
+```
+
+Symbolic links
+```
+// Eclipse(pleiades)
+$ sudo ln -s /mnt/c/pleiades-2021-java-win-64bit-jre/pleiades ~/pleiades
+
+// Windows home directory
+$ sudo ln -s /mnt/c/User/your_name ~/winhome
+
+// Firefox
+$ sudo ln -s "/mnt/c/Program Files/Mozilla Firefox/firefox.exe" /usr/local/bin/firefox
+
+// XAMPP
+$ sudo ln -s /mnt/c/xampp/mysql/bin/mysql.exe /usr/local/bin/mysql
+$ sudo ln -s /mnt/c/xampp/xampp-control.exe /usr/local/bin/xampp
+```
 
 # Installation
-For jellybeans.vim 
+For vim
 ```
+// basic
+$ sudo apt-get install vim-gtk3
+$ sudo pip install neovim (pip3 かも?)
+
+// ctags
+sudo apt-get install universal-ctags
+
+// jellybeans.vim 
 $ cd $HOME/.vim/colors/
 $ curl -O https://github.com/nanotech/jellybeans.vim/colors/jellybeans.vim
-```
 
-For Dein
-```
+// Dein
 $ sudo apt-get install neovim python3
 $ mkdir -p $HOME/.cache/dein
 $ cd $HOME/.cache/dein
@@ -47,4 +73,14 @@ $ vim $HOME/.source-highlihgt/src-hilite-lesspipe.sh  => [ esc.style --> jellybe
 For battery command
 ```
 $ sudo apt-get install upower
+```
+
+For mysql
+```
+$ sudo apt-get install mycli
+```
+
+For Java
+```
+$ sudo apt-get install default-jdk junit5
 ```

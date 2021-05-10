@@ -15,8 +15,6 @@ add-zsh-hook precmd settitle
 add-zsh-hook preexec settitle
 add-zsh-hook chpwd settitle
 
-#title=[${USER}@${HOST%%.*}]$PWD
-
 # ヒストリー関係
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -158,3 +156,6 @@ function cdworktree() {
 
 # WSL のzsh の警告音を消す
 setopt no_beep
+
+# mysql の設定
+alias mycli='mycli -u testuser -p testpass -h localhost -p 3306'

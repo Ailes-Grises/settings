@@ -79,7 +79,7 @@ function! s:execute_ctags() abort
   " タグファイルパスが見つからなかった場合
   if tags_path ==# ''
 		" 現状何もしてないが、本当はプロジェクトルートに自動生成したりしたほうが良い
-		echo ".tags ファイルが見つかりませんでした．どこかに生成して下さい．"
+		" echo ".tags ファイルが見つかりませんでした．どこかに生成して下さい．"
     return
   endif
 
@@ -162,6 +162,9 @@ if dein#load_state('~/.cache/dein')
 
 	" emmet
 	call dein#add('mattn/emmet-vim')
+
+	" vim-surround(括弧とかをいじる便利ツール)
+	call dein#add('tpope/vim-surround')
 
 	call dein#end()
 	call dein#save_state()
