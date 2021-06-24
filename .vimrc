@@ -22,13 +22,27 @@ set smartcase
 set t_Co=256
 " set laststatus=2
 
+" ===================== 英字キーボードの時のキーバインド ========================
+
+" やっぱりコロンの位置は動かしたくない
+nnoremap ' :
+nnoremap : '
+vnoremap ' :
+vnoremap : '
+inoremap ' :
+inoremap : '
+
+
+" 画面スクロールも日本語配列の時の感覚でやりたい(Shift [ で↑)
+nnoremap + {
+
+" ===============================================================================
 
 
 " 編集モードのキーバインド
 " inoremap { {}<Left>
 " inoremap ( ()<Left>
 " inoremap [ []<Left>
-" inoremap " ""<Left>
 " inoremap ' ''<Left>
 
 
@@ -53,7 +67,10 @@ nnoremap <silent> ;b :set binary<CR>:%!xxd<CR>
 nnoremap <silent> ;B :%!xxd -r<CR>:set nobinary<CR>
 
 " 文字数の表示
-"vnoremap <silent> ;vcount :s/\v./&/g<CR>
+" vnoremap ;n vcount
+" function vcount{
+" 	:%s/\v./&/g
+" }
 nnoremap <silent> ;ncount :%s/\v./&/g<CR>
 
 " ヤンクした文字列を検索する
@@ -132,7 +149,6 @@ if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-  call dein#add('Shougo/deoplete.nvim')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')

@@ -6,6 +6,7 @@ $HOME/ ---- .zshrc
         |-- .colorrc
         |-- .termcolors.pl
 				|-- .xmodmap_mysettings
+				|-- .git-prompt.sh
         |
         |-- .vim/ ---- indent.pl
         |          L-- colors/ ---- jellybeans.vim
