@@ -60,7 +60,7 @@ nnoremap <silent> <Space><Space> :set nohlsearch<CR>
 nnoremap <silent> ;r :set hlsearch<CR>:%s/\v[”’＆＄％＃！＾〜ー＊＋｀？]/&/g<CR>
 
 " 句読点の変換
-nnoremap <silent> ;p :%s/\v、/，/g<CR>:%s/\v。/．/g<CR>
+nnoremap <silent> ;p :%s/\v。/．/g<CR>:%s/\v、/，/g<CR>
 
 " バイナリ表示
 nnoremap <silent> ;b :set binary<CR>:%!xxd<CR>
