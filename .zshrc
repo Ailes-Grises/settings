@@ -148,7 +148,7 @@ function cdworktree() {
 }
 
 # =========================== WSL + windows terminal =====================================
-# WSL で現在のディレクトリを保持したまま新しいタブを開く
+# WSL で現在のディレクトリを保持したまま新しいタブを開く(どうしてもうまくいかなかった)
 # function _windows_terminal_osc_9_9 {
 # 	printf '\e]9;9;%s\e\' "$(wslpath -w "$(pwd)")"
 # }
@@ -157,5 +157,9 @@ function cdworktree() {
 # WSL のzsh の警告音を消す
 setopt no_beep
 
-# mysql の設定
+# mysql の設定(面倒臭かったのでユーザ名とパスワードも決め打ちにしたw)
 alias mycli='mycli -u testuser -p testpass -h localhost -p 3306'
+
+# brew の設定(ローカル環境下でSSL通信を行うツールを入れたかったため)
+export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin/"
+
