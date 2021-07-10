@@ -1,0 +1,46 @@
+#!/usr/bin/bash
+
+echo "\x1b[33mAre you Ubuntu? [Y/n]: \x1b[0m"
+read check
+case $check in
+	[Yy])
+		check=""
+		;;
+	*)
+		echo "Installation has been canceled. "
+		exit 1
+		;;
+esac
+
+# Set repositories
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt-get update
+sudo apt-get -y install python3-pip
+
+
+# Basic tools
+sudo apt-get -y install zsh upower curl gparted source-highlight imagemagick
+sudo apt-get -y install git tig mycli bat
+
+# Languages
+sudo apt-get -y install gcc g++ gdb default-jdk junit5
+
+# vim
+sudo pip install neovim
+sudo apt-get -y install universal-ctags vim-gtk3
+
+# Dein
+mkdir -p ~/.cache/dein
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/installer.sh
+sh ~/installer.sh ~/.cache/dein
+rm ~/installer.sh
+
+# fzf
+mkdir -p ~/.fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+# platformio
+sudo git clone https://platformio/platformio.git /opt/platformio
+sudo pip install platformio scons
+

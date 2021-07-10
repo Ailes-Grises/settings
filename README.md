@@ -74,9 +74,9 @@ For less color
 ```
 $ sudo apt-get install source-highlight
 $ mkdir $HOME/.source-highlight
-$ cp /usr/share/source-highlight/src-hilite-lesspipe.sh $HOME/.source-highlihgt
+$ cp /usr/share/source-highlight/src-hilite-lesspipe.sh $HOME/.source-highlight
 $ cp /usr/share/source-highlight/esc.style $HOME/.source-highlight/jellybeans.style
-$ vim $HOME/.source-highlihgt/src-hilite-lesspipe.sh  => [ esc.style --> jellybeans.style ]
+$ vim $HOME/.source-highlight/src-hilite-lesspipe.sh  => [ esc.style --> jellybeans.style ]
 ```
 
 For battery command

@@ -1,5 +1,17 @@
 #!/usr/bin/bash
 
+echo "Are you WSL? [Y/n]: "
+read check
+case $check in
+	[Yy])
+		check=""
+		;;
+	*)
+		echo "canceled. "
+		exit 1
+		;;
+esac
+
 # Eclipse(pleiades)
 sudo ln -s /mnt/c/pleiades-2021-java-win-64bit-jre/pleiades ~/pleiades
 

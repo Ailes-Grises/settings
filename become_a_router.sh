@@ -2,6 +2,18 @@
 
 set -e
 
+echo "現在使用中のPC をルータモードに変更します．本当に実行しますか? [Y/n]: "
+read check
+case $check in
+	[Yy])
+		check=""
+		;;
+	*)
+		echo "キャンセルされました．"
+		exit 1
+		;;
+esac
+
 # このスクリプトは，Wifiが使えないPC1(SOTEC のCentOSとか)とまともなPC2(Panasonic のUbuntuとか)を有線接続することによって，
 # PC1をネットに接続できるようにするものである．
 
