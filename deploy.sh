@@ -1,24 +1,10 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # Is here the directory "~/settings" ?
 if [ $PWD = "$HOME/settings" ];then
 	echo "Please run this script on \"~/settings\" directory. "
 	echo "Deployment has been canceled. "
 fi
-
-echo "\x1b[33mHave you run \"settings/install.sh\" yet? [Y/n]: \x1b[0m"
-read check
-
-case $check in
-	[Yy])
-		check=""
-		;;
-	*)
-		echo "Deployment has been canceled. "
-		exit 1
-		;;
-esac
-
 
 # for $HOME
 mv .bashrc $HOME

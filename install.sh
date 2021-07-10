@@ -1,4 +1,6 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+
+set -e
 
 echo "\x1b[33mAre you Ubuntu? [Y/n]: \x1b[0m"
 read check
@@ -23,7 +25,9 @@ sudo apt-get -y install zsh upower curl gparted source-highlight imagemagick
 sudo apt-get -y install git tig mycli bat
 
 # Languages
-sudo apt-get -y install gcc g++ gdb default-jdk junit5
+sudo apt-get -y install gcc g++ gdb libc6-dev-i386
+sudo apt-get -y install openjdk-8-jdk junit5
+sudo apt-get -y install scala
 
 # vim
 sudo pip install neovim
@@ -44,3 +48,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 sudo git clone https://platformio/platformio.git /opt/platformio
 sudo pip install platformio scons
 
+
+echo "All tools are now installed completely!"
+echo "And here's the list of tools that are not installed yet: "
+echo " - sbt (Please refer to the official page. )"
+echo " - gradle"
