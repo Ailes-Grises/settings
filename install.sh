@@ -23,6 +23,7 @@ sudo apt-get -y install python3-pip
 # Basic tools
 sudo apt-get -y install zsh upower curl gparted source-highlight imagemagick
 sudo apt-get -y install git tig mycli bat pococom input_utils
+sudo apt-get -y install manpages-ja manpages-ja-dev sleepenv
 
 # Languages
 sudo apt-get -y install gcc g++ gdb libc6-dev-i386
@@ -48,8 +49,11 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 sudo git clone https://platformio/platformio.git /opt/platformio
 sudo pip install platformio scons
 
+# LaTeX
+# sudo apt-get install texlive-lang-cjk texlive-font-utils texlive-fonts-extra xdvik-ja
 
 echo "All tools are now installed completely!"
 echo "And here's the list of tools that are not installed yet: "
 echo " - sbt (Please refer to the official page. )"
 echo " - gradle"
+echo " - LaTeX (if you want it. )"
