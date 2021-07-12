@@ -23,7 +23,7 @@ sudo apt-get -y install python3-pip
 # Basic tools
 sudo apt-get -y install zsh upower curl gparted source-highlight imagemagick
 sudo apt-get -y install git tig mycli bat pococom input_utils
-sudo apt-get -y install manpages-ja manpages-ja-dev sleepenv
+sudo apt-get -y install manpages-ja manpages-ja-dev sleepenh
 
 # Languages
 sudo apt-get -y install gcc g++ gdb libc6-dev-i386
