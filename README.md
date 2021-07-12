@@ -1,8 +1,9 @@
 # Positions
-```
 Please run the following script to complete the deployment:
 ```
  $ ./deploy.sh
+```
+
 ```
 
 $HOME/ ---- .zshrc
