@@ -5,7 +5,10 @@
 set -e
 
 LOG_FILE="./install.log"
+LOG_ERR="./error.log"
 exec 1> >(tee -a $LOG_FILE)
+exec 2> >(tee -a $LOG_ERR)
+
 Yellow="\x1b[33m"
 Default="\x1b[0m"
 
