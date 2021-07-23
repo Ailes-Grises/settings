@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-LOG_FILE="./deploy_stdout.log"
-LOG_ERR="./deploy_stderr.log"
+LOG_FILE="$HOME/deploy_stdout.log"
+LOG_ERR="$HOME/deploy_stderr.log"
 exec 1> >(tee -a $LOG_FILE)
 exec 2> >(tee -a $LOG_ERR)
 
@@ -11,8 +11,8 @@ Default="\x1b[0m"
 
 # Is here the directory "~/settings" ?
 if [ ! $PWD = "$HOME/settings/" ];then
-	echo -e "Please run this script on \"~/settings\" directory. "
-	echo -e "Deployment has been canceled. "
+	echo -e "\n${Yellow}Please run this script on \"~/settings\" directory. "
+	echo -e "Deployment has been canceled. ${Default}\n"
 	exit 1
 fi
 
