@@ -2,14 +2,14 @@
 
 set -e
 
-echo "\x1b[33mAre you Ubuntu? [Y/n]: \x1b[0m"
+echo -e "\x1b[33mAre you Ubuntu? [Y/n]: \x1b[0m"
 read check
 case $check in
 	[Yy])
 		check=""
 		;;
 	*)
-		echo "Installation has been canceled. "
+		echo -e "Installation has been canceled. "
 		exit 1
 		;;
 esac
@@ -53,8 +53,8 @@ sudo pip install platformio scons
 # LaTeX
 # sudo apt-get install texlive-lang-cjk texlive-font-utils texlive-fonts-extra xdvik-ja
 
-echo "All tools are now installed completely!"
-echo "And here's the list of tools that are not installed yet: "
-echo " - sbt (Please refer to the official page. )"
-echo " - gradle"
-echo " - LaTeX (if you want it. )"
+echo -e "All tools are now installed completely!"
+echo -e "And here's the list of tools that are not installed yet: "
+echo -e " - sbt (Please refer to the official page. )"
+echo -e " - gradle"
+echo -e " - LaTeX (if you want it. )"
