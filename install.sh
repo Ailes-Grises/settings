@@ -33,41 +33,53 @@ echo -e "\n${Yellow}log: install python3-pip${Default}"
 sudo apt-get -y install python3-pip
 
 
-echo -e "\n${Yellow}log: Basic tools${Default}"
 # Basic tools
+echo -e "\n${Yellow}log: Basic tools${Default}"
 sudo apt-get -y install zsh upower curl gparted source-highlight imagemagick
 sudo apt-get -y install git tig mycli bat jq
 sudo apt-get -y install picocom input-utils sleepenh net-tools
 sudo apt-get -y install manpages-ja manpages-ja-dev
 
-echo -e "\n${Yellow}log: Languages${Default}"
 # Languages
+echo -e "\n${Yellow}log: Languages${Default}"
 sudo apt-get -y install gcc g++ gdb libc6-dev-i386
 sudo apt-get -y install openjdk-8-jdk junit5
 sudo apt-get -y install scala
 
-echo -e "\n${Yellow}log: vim${Default}"
 # vim
+echo -e "\n${Yellow}log: vim${Default}"
 sudo pip install neovim
 sudo apt-get -y install universal-ctags vim-gtk3
 
-echo -e "\n${Yellow}log: Dein.vim${Default}"
 # Dein
-mkdir -p ~/.cache/dein
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/installer.sh
-sh ~/installer.sh ~/.cache/dein
-rm ~/installer.sh
+echo -e "\n${Yellow}log: Dein.vim${Default}"
+if [ ! -d $HOME/.cache/dein/ ];then
+	mkdir -p ~/.cache/dein
+	curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/installer.sh
+	sh ~/installer.sh ~/.cache/dein
+	rm ~/installer.sh
+else
+	echo -e "\n${Yellow}log: Installation for \"Dein.vim\" was skipped"
+fi
 
-echo -e "\n${Yellow}log: platformio${Default}"
 # platformio
-sudo git clone https://github.com/platformio/platformio.git /opt/platformio
-sudo pip install platformio scons
+echo -e "\n${Yellow}log: platformio${Default}"
+if [ ! -d /opt/platformio/ ];then
+	sudo git clone https://github.com/platformio/platformio.git /opt/platformio
+	sudo pip install platformio scons
+else
+	echo -e "\n${Yellow}log: Installation for \"platformio\" was skipped"
+fi
 
-echo -e "\n${Yellow}log: fzf${Default}"
 # fzf
-mkdir -p ~/.fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+echo -e "\n${Yellow}log: fzf${Default}"
+if [ ! -d $HOME/.fzf/ ];then
+	mkdir -p ~/.fzf
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+else
+	echo -e "\n${Yellow}log: Installation for \"fzf\" was skipped"
+fi
 
 # echo -e "${Yellow}log: LaTeX${Default}"
 # LaTeX
