@@ -4,8 +4,8 @@
 
 set -e
 
-LOG_FILE="./install.log"
-LOG_ERR="./error.log"
+LOG_FILE="./install_stdout.log"
+LOG_ERR="./install_stderr.log"
 exec 1> >(tee -a $LOG_FILE)
 exec 2> >(tee -a $LOG_ERR)
 
@@ -59,7 +59,7 @@ if [ ! -d $HOME/.cache/dein/ ];then
 	sh ~/installer.sh ~/.cache/dein
 	rm ~/installer.sh
 else
-	echo -e "\n${Yellow}log: Installation for \"Dein.vim\" was skipped"
+	echo -e "${Yellow}log: Installation for \"Dein.vim\" was skipped"
 fi
 
 # platformio
@@ -68,7 +68,7 @@ if [ ! -d /opt/platformio/ ];then
 	sudo git clone https://github.com/platformio/platformio.git /opt/platformio
 	sudo pip install platformio scons
 else
-	echo -e "\n${Yellow}log: Installation for \"platformio\" was skipped"
+	echo -e "${Yellow}log: Installation for \"platformio\" was skipped"
 fi
 
 # fzf
@@ -78,7 +78,7 @@ if [ ! -d $HOME/.fzf/ ];then
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 else
-	echo -e "\n${Yellow}log: Installation for \"fzf\" was skipped"
+	echo -e "${Yellow}log: Installation for \"fzf\" was skipped"
 fi
 
 # echo -e "${Yellow}log: LaTeX${Default}"
