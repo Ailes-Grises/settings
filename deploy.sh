@@ -10,7 +10,7 @@ Default="\x1b[0m"
 
 
 # Is here the directory "~/settings" ?
-if [ ! $PWD = "$HOME/settings/" ];then
+if [ ! $PWD = "$HOME/settings" ];then
 	echo -e "\n${Yellow}Please run this script on \"~/settings\" directory. "
 	echo -e "Deployment has been canceled. ${Default}\n"
 	exit 1
@@ -40,5 +40,5 @@ mv jellybeans.vim ~/.vim/colors
 mv molokai.vim ~/.vim/colors
 
 # Background thema
-cp /usr/share/backgrounds/warty-final-ubuntu.png /usr/share/backgrounds/warty-final-ubuntu.png.default
-mv backgrounds/ubuntu18.04LTS/warty-final-ubuntu.png /usr/share/backgrounds
+sudo cp /usr/share/backgrounds/warty-final-ubuntu.png /usr/share/backgrounds/warty-final-ubuntu.png.default
+sudo mv backgrounds/ubuntu18.04LTS/warty-final-ubuntu.png /usr/share/backgrounds

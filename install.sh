@@ -53,7 +53,7 @@ sudo apt-get -y install universal-ctags vim-gtk3
 
 # Dein
 echo -e "\n${Yellow}log: Dein.vim${Default}"
-if [ ! -d $HOME/.cache/dein/ ];then
+if [ ! -d $HOME/.cache/dein ];then
 	mkdir -p ~/.cache/dein
 	curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/installer.sh
 	sh ~/installer.sh ~/.cache/dein
@@ -64,7 +64,7 @@ fi
 
 # platformio
 echo -e "\n${Yellow}log: platformio${Default}"
-if [ ! -d /opt/platformio/ ];then
+if [ ! -d /opt/platformio ];then
 	sudo git clone https://github.com/platformio/platformio.git /opt/platformio
 	sudo pip install platformio scons
 else
@@ -73,7 +73,7 @@ fi
 
 # fzf
 echo -e "\n${Yellow}log: fzf${Default}"
-if [ ! -d $HOME/.fzf/ ];then
+if [ ! -d $HOME/.fzf ];then
 	mkdir -p ~/.fzf
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
