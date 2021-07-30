@@ -35,9 +35,9 @@ mv jellybeans.style ~/.source-highlight
 if [ ! -d $HOME/.vim/colors ];then
 	mkdir -p ~/.vim/colors
 fi
-mv indent.pl ~/.vim
-mv jellybeans.vim ~/.vim/colors
-mv molokai.vim ~/.vim/colors
+mv indent.pl ~/.vim/
+mv jellybeans.vim ~/.vim/colors/
+mv molokai.vim ~/.vim/colors/
 
 # Background thema
 sudo cp /usr/share/backgrounds/warty-final-ubuntu.png /usr/share/backgrounds/warty-final-ubuntu.png.default

@@ -37,8 +37,8 @@ sudo apt-get -y install python3-pip
 echo -e "\n${Yellow}log: Basic tools${Default}"
 sudo apt-get -y install zsh upower curl gparted source-highlight imagemagick
 sudo apt-get -y install git tig mycli bat jq
-sudo apt-get -y install picocom input-utils sleepenh net-tools
-sudo apt-get -y install manpages-ja manpages-ja-dev
+sudo apt-get -y install picocom input-utils sleepenh net-tools bridge-utils
+sudo apt-get -y install docker.io manpages-ja manpages-ja-dev
 
 # Languages
 echo -e "\n${Yellow}log: Languages${Default}"
