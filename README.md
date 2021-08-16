@@ -63,3 +63,42 @@ $ sudo apt-get install scala
 $ google-chrome https://www.scala-sbt.org/download.html
 ```
 
+# Network Settings
+Ubuntu 17.10 からネットワークの設定方法が変わったので、固定IP のやり方をまとめておく。
+参考サイトは<a href="https://note.com/ogs_digilife/n/nb9455f8f5f2b">こちら</a>
+
+注意点は以下の通り:
+- "/etc/network/interfaces" が廃止になった(何ィー!?)
+- ネットワーク管理ツールがnetplan に変更になった
+- 設定ファイルがyaml に変わった
+	- yaml ファイルは"/etc/netplan/01-hogehoge.yaml" をコピーして、そこに全ての情報を書く
+	- ファイル名は基本的になんでも良いが、デフォルトの"01-hogehoge.yaml"よりも英数字の順番が後ろになるような名前にしないと設定が反映されない(netplan は"/etc/netplan/" 内の設定ファイルを名前順に読み込んで上書き的に反映する、ネット上だと99_config.yaml とかいうファイル名が主流なのはそのため)
+	- renderer はNetworkManager でもnetworkd でもどちらでも良い
+- LAN ケーブルの両端がアクティブなポートに接続されていないと設定が適用されない(ここが一番ハマった、ネットワークあるある)
+- 再起動の必要がなくなった(apply でok)
+
+```
+ $ ifconfig
+ $ sudo vim /etc/netplan/02.yaml
+ $ sudo netplan apply
+```
+
+設定ファイルは以下の通り:
+```yaml
+# Let NetworkManager manage all devices on this system
+network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+    enp0s25:
+      dhcp4: false
+      dhcp6: false
+      addresses: [192.168.1.60/24]
+      gateway4: 192.168.1.1
+      nameservers:
+        addresses: [192.168.1.1, 8.8.8.8]
+
+# 配列を"[]" で書いてるけど、"-" で書いてもok
+# LAN ケーブルの両端を繋がないと設定は反映されないぞ！
+```
+
