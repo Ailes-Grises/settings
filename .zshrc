@@ -75,10 +75,10 @@ alias termcolors='perl $HOME/.termcolors.pl'
 alias Log='perl $HOME/.log.pl'
 alias -g platex='platex -halt-on-error -interaction=nonstopmode -file-line-error'
 
-# 変数
-GIT="https://github.com"
-
-
+# 標準出力から受け取ったファイルのn行目を画面出力する
+function line() {
+	head -n $1 | tail -1
+}
 
 # cdの後にlsを実行
 chpwd() { ls --color=auto }
@@ -109,7 +109,6 @@ function search_home() {
 }
 zle -N search_home
 bindkey '^y' search_home
-
 
 
 # tig

@@ -139,6 +139,7 @@ command! FZFMru call fzf#run({
 
 
 " =========================== Dein ====================================
+" let g:dein#auto_recache=1
 if &compatible
   set nocompatible
 endif
